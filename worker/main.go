@@ -9,10 +9,11 @@ import (
 	"money-transfer-project-template-go/app"
 )
 
-// @@@SNIPSTART money-transfer-project-template-go-worker
 func main() {
 	// Create the client object just once per process
-	c, err := client.NewClient(client.Options{})
+	c, err := client.NewClient(client.Options{
+		HostPort: app.HostPort,
+	})
 	if err != nil {
 		log.Fatalln("unable to create Temporal client", err)
 	}
@@ -28,4 +29,3 @@ func main() {
 		log.Fatalln("unable to start Worker", err)
 	}
 }
-// @@@SNIPEND

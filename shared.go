@@ -1,8 +1,10 @@
 package app
 
-// @@@SNIPSTART money-transfer-project-template-go-shared-task-queue
+import "os"
+
 const TransferMoneyTaskQueue = "TRANSFER_MONEY_TASK_QUEUE"
-// @@@SNIPEND
+
+var HostPort = os.Getenv("TEMPORAL_CLUSTER_HOSTPORT")
 
 type TransferDetails struct {
 	Amount      float32

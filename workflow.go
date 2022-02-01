@@ -7,7 +7,6 @@ import (
 	"go.temporal.io/sdk/workflow"
 )
 
-// @@@SNIPSTART money-transfer-project-template-go-workflow
 func TransferMoney(ctx workflow.Context, transferDetails TransferDetails) error {
 	// RetryPolicy specifies how to automatically handle retries if an Activity fails.
 	retrypolicy := &temporal.RetryPolicy{
@@ -34,4 +33,3 @@ func TransferMoney(ctx workflow.Context, transferDetails TransferDetails) error 
 	}
 	return nil
 }
-// @@@SNIPEND
