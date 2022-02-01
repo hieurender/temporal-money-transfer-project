@@ -14,7 +14,7 @@ services:
     autoDeploy: false
     plan: Standard
     env: docker
-    dockerfilePath: ./temporal-cluster/server/Dockerfile
+    dockerfilePath: ./temporal-cluster/server/auto-setup/Dockerfile
     dockerCommand: /etc/temporal/entrypoint.sh autosetup
     scaling:
       minInstances: 2
@@ -28,6 +28,8 @@ services:
         value: frontend
       - key: DYNAMIC_CONFIG_FILE_PATH
         value: /etc/temporal/dynamicconfig.yaml
+      - key: SKIP_POSTGRES_DB_CREATION
+        value: true
       - key: DB
         value: postgresql
       - key: DBNAME
